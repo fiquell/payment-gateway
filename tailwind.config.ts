@@ -1,11 +1,11 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 const config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
-} satisfies Config;
+  plugins: [],
+} satisfies Config
 
-export default config;
+export default config
