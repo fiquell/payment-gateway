@@ -1,3 +1,3 @@
 <section class="flex h-screen items-center justify-center">
-  <p>home</p>
+  <p>user</p>
 </section>
