@@ -2,8 +2,7 @@
   import { ShoppingCart, User } from 'lucide-svelte'
 </script>
 
-<header
-  class="container navbar absolute right-1/2 top-0 translate-x-1/2 bg-base-100">
+<header class="container navbar absolute right-1/2 top-0 translate-x-1/2">
   <div class="navbar-start">
     <a href="/" class="btn btn-square btn-ghost text-xl">🔥</a>
   </div>
