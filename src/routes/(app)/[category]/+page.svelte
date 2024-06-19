@@ -1,3 +1,8 @@
+<script lang="ts">
+  import { page } from '$app/stores'
+  import { titleCase } from 'string-ts'
+</script>
+
 <section>
-  <p>category</p>
+  <p>{titleCase($page.params.category)}</p>
 </section>
