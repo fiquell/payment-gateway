@@ -13,7 +13,7 @@
     <List size={16} />
     All Categories
   </a>
-  <ul class="menu gap-1 rounded-box">
+  <ul class="menu gap-1">
     {#each categories as category}
       <li>
         <a
