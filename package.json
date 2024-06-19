@@ -12,7 +12,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "lucide-svelte": "^0.395.0"
+    "lucide-svelte": "^0.395.0",
+    "string-ts": "^2.1.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
