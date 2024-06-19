@@ -1,17 +1,18 @@
 <script lang="ts">
   import { convertUSDToIDR } from '$lib/utils'
+  import { titleCase } from 'string-ts'
   import type { PageData } from './$types'
 
   export let data: PageData
 </script>
 
-<section class="my-24 flex flex-wrap gap-2">
+<section class="flex flex-wrap justify-end gap-2">
   {#each data.products.products as product}
     <a
       href="/"
       class="group transition duration-300 ease-in-out hover:-translate-y-1">
       <div
-        class="card card-compact w-80 bg-base-100 shadow-lg group-hover:shadow-xl">
+        class="card card-compact w-72 bg-base-100 shadow-lg group-hover:shadow-xl">
         <figure>
           <img src={product.thumbnail} alt={product.title} />
         </figure>
@@ -43,7 +44,7 @@
           </div>
           <div class="card-actions mt-4 justify-end">
             {#each product.tags as tag}
-              <a href="/" class="badge badge-neutral capitalize">{tag}</a>
+              <a href="/" class="badge badge-neutral">{titleCase(tag)}</a>
             {/each}
           </div>
         </div>
