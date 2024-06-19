@@ -33,8 +33,12 @@
             {/if}
           </div>
           <div class="flex items-center gap-1">
-            {#each Array.from({ length: 5 }) as _}
-              <div class="mask mask-star-2 h-4 w-4 bg-warning" />
+            {#each Array.from({ length: 5 }) as _, i}
+              {#if i < Math.floor(product.rating)}
+                <div class="mask mask-star-2 h-4 w-4 bg-warning" />
+              {:else}
+                <div class="mask mask-star-2 h-4 w-4 bg-neutral" />
+              {/if}
             {/each}
           </div>
           <div class="card-actions mt-4 justify-end">
