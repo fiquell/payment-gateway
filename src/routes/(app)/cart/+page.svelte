@@ -1,3 +1,3 @@
-<section class="flex h-screen items-center justify-center">
+<section>
   <p>cart</p>
 </section>
