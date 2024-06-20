@@ -6,8 +6,8 @@
 
   export let data: LayoutData
 
-  const categories = Array.from(
-    new Set(data.products.products.map((product) => product.category))
+  const categorySlug = Array.from(
+    new Set(data.categories.map((category) => category.slug))
   )
 
   let shouldShowAside: boolean
@@ -15,7 +15,7 @@
   $: {
     const path = $page.url.pathname
     const isHome = path === '/'
-    const isCategory = categories.includes(path.slice(1))
+    const isCategory = categorySlug.includes(path.slice(1))
 
     shouldShowAside = isHome || isCategory
 
@@ -24,13 +24,14 @@
     console.log('isCategory:', isCategory)
   }
 
-  console.log('categories:', categories)
+  console.log('data.categories:', data.categories)
+  console.log('categorySlug:', categorySlug)
 </script>
 
 <SiteHeader />
 <div class="container my-24 flex items-start gap-4">
   {#if shouldShowAside}
-    <SiteAside {categories} />
+    <SiteAside categories={data.categories} />
   {/if}
   <main class="w-screen">
     <slot />

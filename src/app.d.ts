@@ -55,6 +55,12 @@ declare global {
       reviewerEmail: string
     }
 
+    interface Categories {
+      slug: string
+      name: string
+      url: string
+    }
+
     // interface Error {}
     // interface Locals {}
     // interface PageData {}

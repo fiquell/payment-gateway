@@ -1,9 +1,8 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import { List } from 'lucide-svelte'
-  import { kebabCase, titleCase } from 'string-ts'
 
-  export let categories: string[]
+  export let categories: App.Categories[]
 
   $: path = $page.url.pathname
 </script>
@@ -17,9 +16,9 @@
     {#each categories as category}
       <li>
         <a
-          href="/{kebabCase(category)}"
-          class:active={path.slice(1) === kebabCase(category)}>
-          {titleCase(category)}
+          href="/{category.slug}"
+          class:active={path.slice(1) === category.slug}>
+          {category.name}
         </a>
       </li>
     {/each}
