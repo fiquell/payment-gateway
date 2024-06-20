@@ -6,7 +6,7 @@
 </script>
 
 <section class="flex flex-wrap justify-end gap-2">
-  {#each data.dummyjson.products as product}
+  {#each data.products as product}
     <ProductCard {product} />
   {/each}
 </section>
