@@ -10,7 +10,7 @@
     <a href="/cart" class="btn btn-square btn-ghost">
       <div class="indicator">
         <ShoppingCart />
-        <span class="badge indicator-item badge-accent badge-sm">12</span>
+        <span class="badge indicator-item badge-primary badge-sm">12</span>
       </div>
     </a>
     <a href="/user" class="btn btn-square btn-ghost">

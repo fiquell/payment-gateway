@@ -15,9 +15,9 @@
     </figure>
     <div class="card-body">
       <p class="truncate">{product.title}</p>
-      <div class="mb-2 mt-4 flex items-center gap-2">
+      <div class="mb-1 mt-2 flex items-center gap-2">
         <div>
-          <p class="text-base font-semibold text-primary">
+          <p class="font-semibold text-primary">
             {convertUSDToIDR(product.price, product.discountPercentage)}
           </p>
         </div>
@@ -41,7 +41,7 @@
       </div>
       <div class="card-actions mt-4 justify-end">
         {#each product.tags as tag}
-          <div class="badge badge-neutral">
+          <div class="badge badge-neutral badge-sm">
             <p>{titleCase(tag)}</p>
           </div>
         {/each}
