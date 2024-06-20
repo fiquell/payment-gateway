@@ -6,26 +6,22 @@
 
   export let data: LayoutData
 
-  const categorySlug = Array.from(
-    new Set(data.categories.map((category) => category.slug))
-  )
-
   let shouldShowAside: boolean
 
   $: {
     const path = $page.url.pathname
+    const slug = data.categories.map((category) => category.slug)
+
     const isHome = path === '/'
-    const isCategory = categorySlug.includes(path.slice(1))
+    const isCategory = slug.includes(path.slice(1))
 
     shouldShowAside = isHome || isCategory
 
     console.log('path:', path)
+    console.log('slug:', slug)
     console.log('isHome:', isHome)
     console.log('isCategory:', isCategory)
   }
-
-  console.log('data.categories:', data.categories)
-  console.log('categorySlug:', categorySlug)
 </script>
 
 <SiteHeader />
