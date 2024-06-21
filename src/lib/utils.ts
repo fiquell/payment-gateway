@@ -14,7 +14,7 @@ export const applyDiscount = (price: number, discount: number) => {
 }
 
 export const convertUSDToIDR = (price: number, discount: number = 0) => {
-  const exchangeRate = 16361
+  const exchangeRate = 1000
   const discountedUSD = applyDiscount(price, discount)
 
   return formatIDR(discountedUSD * exchangeRate)
