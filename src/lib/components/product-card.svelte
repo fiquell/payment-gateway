@@ -1,8 +1,18 @@
 <script lang="ts">
+  import { cart } from '$lib/stores'
   import { convertUSDToIDR } from '$lib/utils'
   import { ShoppingCart } from 'lucide-svelte'
 
   export let product: App.Product
+
+  const addToCart = (product: App.Product) => {
+    cart.update((items) => {
+      if (items.find((item) => item.id === product.id)) {
+        return [...items]
+      }
+      return [...items, { ...product }]
+    })
+  }
 </script>
 
 <div class="card card-compact w-72">
@@ -36,7 +46,7 @@
       {/each}
     </div>
     <div class="card-actions mt-4">
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" on:click={() => addToCart(product)}>
         <ShoppingCart size={16} />
         Add To Cart
       </button>

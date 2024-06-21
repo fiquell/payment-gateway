@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { cart } from '$lib/stores'
   import { ShoppingCart, User } from 'lucide-svelte'
 </script>
 
@@ -8,10 +9,16 @@
   </div>
   <div class="navbar-end space-x-2">
     <a href="/cart" class="btn btn-square btn-ghost">
-      <div class="indicator">
+      {#if $cart.length}
+        <div class="indicator">
+          <ShoppingCart />
+          <p class="badge indicator-item badge-primary badge-sm">
+            {$cart.length}
+          </p>
+        </div>
+      {:else}
         <ShoppingCart />
-        <span class="badge indicator-item badge-primary badge-sm">12</span>
-      </div>
+      {/if}
     </a>
     <a href="/user" class="btn btn-square btn-ghost">
       <User />
