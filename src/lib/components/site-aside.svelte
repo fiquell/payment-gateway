@@ -10,13 +10,13 @@
 </script>
 
 <aside class="w-1/4">
-  <ul class="menu gap-1">
+  <ul class="menu space-y-1">
     <li>
       <div class="menu-title flex items-center gap-2">
         <List size={16} />
         <p>All Categories</p>
       </div>
-      <ul>
+      <ul class="space-y-1">
         {#each categories.slice(0, isExpanded ? categories.length : 5) as category}
           <li>
             <a
