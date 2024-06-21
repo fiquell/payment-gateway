@@ -16,11 +16,6 @@
     const isCategory = slug.includes(path.slice(1))
 
     shouldShowAside = isHome || isCategory
-
-    console.log('path:', path)
-    console.log('slug:', slug)
-    console.log('isHome:', isHome)
-    console.log('isCategory:', isCategory)
   }
 </script>
 

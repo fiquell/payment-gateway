@@ -10,6 +10,7 @@
       if (items.find((item) => item.id === product.id)) {
         return [...items]
       }
+
       return [...items, { ...product }]
     })
   }
@@ -48,7 +49,7 @@
     <div class="card-actions mt-4">
       <button class="btn btn-primary" on:click={() => addToCart(product)}>
         <ShoppingCart size={16} />
-        Add To Cart
+        <span>Add To Cart</span>
       </button>
     </div>
   </div>
