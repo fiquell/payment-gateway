@@ -30,7 +30,9 @@
       </div>
       {#if product.discountPercentage >= 1}
         <div>
-          <p class="line-through">{convertUSDToIDR(product.price)}</p>
+          <p class="line-through opacity-80">
+            {convertUSDToIDR(product.price)}
+          </p>
         </div>
         <div class="badge badge-neutral">
           <p>{product.discountPercentage.toFixed(0)}%</p>
