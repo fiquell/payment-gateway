@@ -1,6 +1,7 @@
 /** @type {import('prettier').Config} */
 const config = {
   bracketSameLine: true,
+  endOfLine: 'auto',
   semi: false,
   singleQuote: true,
   trailingComma: 'es5',
