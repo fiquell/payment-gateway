@@ -15,8 +15,8 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Product</th>
-            <th>Total Price</th>
+            <th>Products</th>
+            <th>Total Prices</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -32,7 +32,7 @@
                   </div>
                   <div>
                     <p class="font-semibold">{item.title}</p>
-                    <p class="text-sm opacity-80">{item.returnPolicy}</p>
+                    <p class="opacity-80">{item.returnPolicy}</p>
                   </div>
                 </div>
               </td>
@@ -41,13 +41,13 @@
                   {convertUSDToIDR(item.price, item.discountPercentage)}
                 </p>
               </td>
-              <th>
+              <td>
                 <button
-                  class="btn btn-ghost btn-sm"
+                  class="btn btn-error btn-sm"
                   on:click={() => removeFromCart(item)}>
                   Delete
                 </button>
-              </th>
+              </td>
             </tr>
           {/each}
         </tbody>
@@ -55,7 +55,7 @@
     </div>
   {:else}
     <div class="mt-40 flex flex-col items-center gap-4">
-      <p class="text-3xl font-semibold">Your shopping cart is empty</p>
+      <p class="text-2xl font-semibold">Your shopping cart is empty</p>
       <a href="/" class="btn btn-outline btn-primary">Continue shopping</a>
     </div>
   {/if}

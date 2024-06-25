@@ -13,7 +13,6 @@
         <p>Total ({$cart.length} item):</p>
         <p>{formatIDR($totalPrice)}</p>
       </div>
-      <hr />
       <button class="btn btn-primary btn-block">Checkout</button>
     </div>
   {/if}
