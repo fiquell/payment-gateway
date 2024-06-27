@@ -56,7 +56,7 @@
   {:else}
     <div class="mt-40 flex flex-col items-center gap-4">
       <p class="text-2xl font-semibold">Your shopping cart is empty</p>
-      <a href="/" class="btn btn-outline btn-primary">Continue shopping</a>
+      <a href="/" class="btn btn-primary btn-wide">Continue shopping</a>
     </div>
   {/if}
 </section>
