@@ -21,7 +21,7 @@
     <img src={product.thumbnail} alt={product.title} />
   </figure>
   <div class="card-body">
-    <p class="truncate">{product.title}</p>
+    <p class="truncate font-semibold">{product.title}</p>
     <div class="mb-1 mt-2 flex items-center gap-2">
       <div>
         <p class="font-semibold text-primary">
