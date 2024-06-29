@@ -8,11 +8,9 @@ export const load = (async ({ fetch }) => {
 
     const products = dummyjson.products.map(({ title, price, ...product }) => ({
       ...product,
-      name: title,
+      name: title as string,
       price: convertUSDToIDR(price, 0),
     }))
-
-    console.log('products (/):', products)
 
     return {
       products,

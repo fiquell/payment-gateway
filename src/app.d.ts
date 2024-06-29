@@ -10,9 +10,8 @@ declare global {
     }
 
     interface Product {
-      readonly title: string
-
       id: number
+      title?: string
       name: string
       description: string
       category: string
