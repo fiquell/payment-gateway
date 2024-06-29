@@ -3,13 +3,19 @@
   import { applyDiscount, cn, formatIDR } from '$lib/utils'
   import { Minus, Plus } from 'lucide-svelte'
 
-  const handleQuantityChange = (event: Event, item: App.Cart) => {
+  const handleQuantityChange = (event: Event, product: App.Cart) => {
     const input = event.target as HTMLInputElement
-    const quantity = Math.min(Math.max(parseInt(input.value, 10), 1), 16)
+    const quantity = Math.max(1, Math.min(parseInt(input.value, 10), 16))
 
-    item.quantity = quantity
+    return cart.update((items) => {
+      const index = items.findIndex((item) => item.id === product.id)
 
-    return cart.update((items) => items)
+      if (index !== -1) {
+        items[index].quantity = quantity
+      }
+
+      return items
+    })
   }
 
   const removeFromCart = (product: App.Cart) => {
