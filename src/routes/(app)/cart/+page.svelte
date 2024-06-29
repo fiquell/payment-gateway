@@ -12,7 +12,7 @@
     return cart.update((items) => items)
   }
 
-  const removeFromCart = (product: App.Product) => {
+  const removeFromCart = (product: App.Cart) => {
     return cart.update((items) => {
       return items.filter((item) => item.id !== product.id)
     })
@@ -38,11 +38,11 @@
                 <div class="flex items-center gap-4">
                   <div class="avatar">
                     <div class="w-16 rounded-2xl bg-base-100">
-                      <img src={item.thumbnail} alt={item.title} />
+                      <img src={item.thumbnail} alt={item.name} />
                     </div>
                   </div>
                   <div>
-                    <p class="font-semibold">{item.title}</p>
+                    <p class="font-semibold">{item.name}</p>
                     <p class="opacity-80">{item.returnPolicy}</p>
                   </div>
                 </div>

@@ -61,7 +61,7 @@ declare global {
       url: string
     }
 
-    interface Cart extends Product {
+    interface Cart extends Omit<Product, 'title'> {
       name: string
       quantity: number
     }

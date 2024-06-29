@@ -11,10 +11,12 @@
         return [...items]
       }
 
+      const { title, ...details } = product
+
       return [
         ...items,
         {
-          ...product,
+          ...details,
           name: product.title,
           quantity: 1,
         },
