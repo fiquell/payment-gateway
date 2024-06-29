@@ -11,7 +11,7 @@
         return [...items]
       }
 
-      return [...items, { ...product }]
+      return [...items, { ...product, quantity: 1 }]
     })
   }
 </script>

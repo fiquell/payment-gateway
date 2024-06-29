@@ -1,6 +1,16 @@
 <script lang="ts">
   import { cart } from '$lib/stores'
-  import { convertUSDToIDR } from '$lib/utils'
+  import { applyDiscount, cn, formatIDR } from '$lib/utils'
+  import { Minus, Plus } from 'lucide-svelte'
+
+  const handleQuantityChange = (event: Event, item: App.Cart) => {
+    const input = event.target as HTMLInputElement
+    const quantity = Math.min(Math.max(parseInt(input.value, 10), 1), 16)
+
+    item.quantity = quantity
+
+    return cart.update((items) => items)
+  }
 
   const removeFromCart = (product: App.Product) => {
     return cart.update((items) => {
@@ -16,6 +26,7 @@
         <thead>
           <tr>
             <th>Products</th>
+            <th>Quantity</th>
             <th>Total Prices</th>
             <th>Actions</th>
           </tr>
@@ -27,18 +38,45 @@
                 <div class="flex items-center gap-4">
                   <div class="avatar">
                     <div class="w-16 rounded-2xl bg-base-100">
-                      <img src={item.thumbnail} alt={item.title} />
+                      <img src={item.thumbnail} alt={item.name} />
                     </div>
                   </div>
                   <div>
-                    <p class="font-semibold">{item.title}</p>
+                    <p class="font-semibold">{item.name}</p>
                     <p class="opacity-80">{item.returnPolicy}</p>
                   </div>
                 </div>
               </td>
               <td>
+                <div class="flex items-center gap-1">
+                  <button
+                    class={cn(
+                      'btn btn-square btn-neutral btn-sm',
+                      item.quantity === 1 && 'btn-disabled'
+                    )}
+                    on:click={() => item.quantity > 1 && item.quantity--}>
+                    <Minus size={16} />
+                  </button>
+                  <input
+                    type="number"
+                    class="input input-sm input-bordered input-ghost w-12 text-center"
+                    value={item.quantity}
+                    on:change={(event) => handleQuantityChange(event, item)} />
+                  <button
+                    class={cn(
+                      'btn btn-square btn-neutral btn-sm',
+                      item.quantity === 16 && 'btn-disabled'
+                    )}
+                    on:click={() => item.quantity < 16 && item.quantity++}>
+                    <Plus size={16} />
+                  </button>
+                </div>
+              </td>
+              <td>
                 <p class="font-semibold text-primary">
-                  {convertUSDToIDR(item.price, item.discountPercentage)}
+                  {formatIDR(
+                    applyDiscount(item.price, item.discountPercentage)
+                  )}
                 </p>
               </td>
               <td>

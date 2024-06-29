@@ -63,6 +63,10 @@ declare global {
       url: string
     }
 
+    interface Cart extends Product {
+      quantity: number
+    }
+
     // interface Error {}
     // interface Locals {}
     // interface PageData {}
