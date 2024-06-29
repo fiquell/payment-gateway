@@ -11,17 +11,24 @@
         return [...items]
       }
 
-      return [...items, { ...product, quantity: 1 }]
+      return [
+        ...items,
+        {
+          ...product,
+          name: product.title,
+          quantity: 1,
+        },
+      ]
     })
   }
 </script>
 
 <div class="card card-compact w-72">
   <figure class="rounded-2xl bg-base-100">
-    <img src={product.thumbnail} alt={product.name} />
+    <img src={product.thumbnail} alt={product.title} />
   </figure>
   <div class="card-body">
-    <p class="truncate font-semibold">{product.name}</p>
+    <p class="truncate font-semibold">{product.title}</p>
     <div class="mb-1 mt-2 flex items-center gap-2">
       <div>
         <p class="font-semibold text-primary">

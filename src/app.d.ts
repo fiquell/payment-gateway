@@ -11,8 +11,7 @@ declare global {
 
     interface Product {
       id: number
-      title?: string
-      name: string
+      title: string
       description: string
       category: string
       price: number
@@ -63,6 +62,7 @@ declare global {
     }
 
     interface Cart extends Product {
+      name: string
       quantity: number
     }
 

@@ -38,11 +38,11 @@
                 <div class="flex items-center gap-4">
                   <div class="avatar">
                     <div class="w-16 rounded-2xl bg-base-100">
-                      <img src={item.thumbnail} alt={item.name} />
+                      <img src={item.thumbnail} alt={item.title} />
                     </div>
                   </div>
                   <div>
-                    <p class="font-semibold">{item.name}</p>
+                    <p class="font-semibold">{item.title}</p>
                     <p class="opacity-80">{item.returnPolicy}</p>
                   </div>
                 </div>
