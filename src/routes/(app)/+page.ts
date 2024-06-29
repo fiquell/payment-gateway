@@ -1,3 +1,4 @@
+import { convertUSDToIDR } from '$lib/utils'
 import type { PageLoad } from './$types'
 
 export const load = (async ({ fetch }) => {
@@ -5,8 +6,16 @@ export const load = (async ({ fetch }) => {
     const response = await fetch('https://dummyjson.com/products?limit=28')
     const dummyjson: App.DummyJSON = await response.json()
 
+    const products = dummyjson.products.map(({ title, price, ...product }) => ({
+      ...product,
+      name: title,
+      price: convertUSDToIDR(price, 0),
+    }))
+
+    console.log('products (/):', products)
+
     return {
-      products: dummyjson.products,
+      products,
     }
   } catch (error) {
     console.error(error)

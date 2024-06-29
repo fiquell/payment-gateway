@@ -10,8 +10,10 @@ declare global {
     }
 
     interface Product {
+      readonly title: string
+
       id: number
-      title: string
+      name: string
       description: string
       category: string
       price: number
@@ -19,7 +21,7 @@ declare global {
       rating: number
       stock: number
       tags: string[]
-      brand?: string
+      brand: string
       sku: string
       weight: number
       dimensions: Dimensions
@@ -40,19 +42,19 @@ declare global {
       depth: number
     }
 
-    interface Meta {
-      createdAt: Date
-      updatedAt: Date
-      barcode: string
-      qrCode: string
-    }
-
     interface Review {
       rating: number
       comment: string
       date: Date
       reviewerName: string
       reviewerEmail: string
+    }
+
+    interface Meta {
+      createdAt: Date
+      updatedAt: Date
+      barcode: string
+      qrCode: string
     }
 
     interface Categories {

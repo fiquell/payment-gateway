@@ -1,6 +1,6 @@
 <script lang="ts">
   import { cart } from '$lib/stores'
-  import { convertUSDToIDR } from '$lib/utils'
+  import { applyDiscount, formatIDR } from '$lib/utils'
   import { ShoppingCart } from 'lucide-svelte'
 
   export let product: App.Product
@@ -18,20 +18,20 @@
 
 <div class="card card-compact w-72">
   <figure class="rounded-2xl bg-base-100">
-    <img src={product.thumbnail} alt={product.title} />
+    <img src={product.thumbnail} alt={product.name} />
   </figure>
   <div class="card-body">
-    <p class="truncate font-semibold">{product.title}</p>
+    <p class="truncate font-semibold">{product.name}</p>
     <div class="mb-1 mt-2 flex items-center gap-2">
       <div>
         <p class="font-semibold text-primary">
-          {convertUSDToIDR(product.price, product.discountPercentage)}
+          {formatIDR(applyDiscount(product.price, product.discountPercentage))}
         </p>
       </div>
       {#if product.discountPercentage >= 1}
         <div>
           <p class="line-through opacity-80">
-            {convertUSDToIDR(product.price)}
+            {formatIDR(product.price)}
           </p>
         </div>
         <div class="badge badge-neutral">
