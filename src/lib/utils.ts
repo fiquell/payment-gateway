@@ -1,5 +1,12 @@
 import { browser } from '$app/environment'
+import type { ClassValue } from 'clsx'
+import clsx from 'clsx'
 import { writable } from 'svelte/store'
+import { twMerge } from 'tailwind-merge'
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs))
+}
 
 export const localStorageWritable = <T>(key: string, initialValue: T) => {
   if (!browser) {
