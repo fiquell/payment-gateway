@@ -59,8 +59,8 @@
                   </button>
                   <input
                     type="number"
-                    class="input input-sm input-bordered input-ghost w-12 text-center"
                     value={item.quantity}
+                    class="input input-sm input-bordered w-12 text-center"
                     on:change={(event) => handleQuantityChange(event, item)} />
                   <button
                     class={cn(
