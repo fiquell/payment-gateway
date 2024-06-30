@@ -7,6 +7,6 @@ export const totalPrice = derived<typeof cart, number>(cart, ($cart) => {
   return $cart.reduce((prev, curr) => {
     const discountedPrice = applyDiscount(curr.price, curr.discountPercentage)
 
-    return prev + discountedPrice
+    return prev + curr.quantity * discountedPrice
   }, 0)
 })

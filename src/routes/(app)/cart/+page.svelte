@@ -81,7 +81,8 @@
               <td>
                 <p class="font-semibold text-primary">
                   {formatIDR(
-                    applyDiscount(item.price, item.discountPercentage)
+                    item.quantity *
+                      applyDiscount(item.price, item.discountPercentage)
                   )}
                 </p>
               </td>
