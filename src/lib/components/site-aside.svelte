@@ -10,7 +10,7 @@
 </script>
 
 <aside class="w-1/4">
-  <ul class="menu space-y-1">
+  <ul class="menu">
     <li>
       <div class="menu-title flex items-center gap-2">
         <List size={16} />
