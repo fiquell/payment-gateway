@@ -6,8 +6,8 @@ export const load = (async ({ fetch }) => {
     const response = await fetch('https://dummyjson.com/products?limit=28')
     const dummyjson: App.DummyJSON = await response.json()
 
-    const products = dummyjson.products.map(({ price, ...product }) => ({
-      ...product,
+    const products = dummyjson.products.map(({ price, ...details }) => ({
+      ...details,
       price: convertUSDToIDR(price, 0),
     }))
 
