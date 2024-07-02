@@ -1,6 +1,20 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
+  interface Window {
+    snap: {
+      pay: (
+        snapToken: string,
+        options?: {
+          onSuccess?: () => void
+          onPending?: () => void
+          onError?: () => void
+          onClose?: () => void
+        }
+      ) => void
+    }
+  }
+
   namespace App {
     interface DummyJSON {
       products: Product[]
