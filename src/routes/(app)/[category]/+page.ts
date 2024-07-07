@@ -10,7 +10,7 @@ export const load = (async ({ fetch, params }) => {
 
     const products = dummyjson.products.map(({ price, ...details }) => ({
       ...details,
-      price: convertUSDToIDR(price, 0),
+      price: convertUSDToIDR(price),
     }))
 
     return {
