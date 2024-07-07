@@ -3,13 +3,10 @@
 declare global {
   interface Window {
     snap: {
-      pay: (
+      embed: (
         snapToken: string,
-        options?: {
-          onSuccess?: () => void
-          onPending?: () => void
-          onError?: () => void
-          onClose?: () => void
+        options: {
+          embedId: string
         }
       ) => void
     }

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { PUBLIC_CLIENT_KEY } from '$env/static/public'
-  import { cart, totalPrice } from '$lib/stores'
-  import { formatIDR } from '$lib/utils'
+  import { cart, snap, totalPrice } from '$lib/stores'
+  import { cn, formatIDR } from '$lib/utils'
 
   const handleCheckout = async () => {
     const response = await fetch('/api/create-transaction', {
@@ -13,28 +12,13 @@
     })
     const { createTransaction } = await response.json()
 
-    return window.snap.pay(createTransaction.token, {
-      onSuccess: () => {
-        console.log('onSuccess')
-      },
-      onPending: () => {
-        console.log('onPending')
-      },
-      onError: () => {
-        console.log('onError')
-      },
-      onClose: () => {
-        console.log('onClose')
-      },
+    snap.set(true)
+
+    return window.snap.embed(createTransaction.token, {
+      embedId: 'snap-container',
     })
   }
 </script>
-
-<svelte:head>
-  <script
-    src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key={PUBLIC_CLIENT_KEY}></script>
-</svelte:head>
 
 <div class="flex items-start gap-4">
   <div class="w-full">
@@ -46,9 +30,12 @@
         <p class="text-sm">Total ({$cart.length} item):</p>
         <p class="text-primary">{formatIDR($totalPrice)}</p>
       </div>
-      <button class="btn btn-primary btn-wide" on:click={handleCheckout}>
+      <button
+        class={cn('btn btn-primary btn-wide', $snap && 'btn-disabled')}
+        on:click={handleCheckout}>
         Checkout
       </button>
+      <div id="snap-container" class="w-full rounded-2xl" />
     </div>
   {/if}
 </div>

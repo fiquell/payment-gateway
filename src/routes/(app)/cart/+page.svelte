@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { cart } from '$lib/stores'
+  import { cart, snap } from '$lib/stores'
   import { cn, formatIDR } from '$lib/utils'
   import { Minus, Plus } from 'lucide-svelte'
 
@@ -58,6 +58,7 @@
                   <button
                     class={cn(
                       'btn btn-square btn-neutral btn-sm',
+                      $snap && 'btn-disabled',
                       item.quantity === 1 && 'btn-disabled'
                     )}
                     on:click={() => item.quantity > 1 && item.quantity--}>
@@ -66,11 +67,13 @@
                   <input
                     type="number"
                     value={item.quantity}
+                    disabled={$snap}
                     class="input input-sm input-bordered w-12 text-center"
                     on:change={(event) => handleQuantityChange(event, item)} />
                   <button
                     class={cn(
                       'btn btn-square btn-neutral btn-sm',
+                      $snap && 'btn-disabled',
                       item.quantity === 16 && 'btn-disabled'
                     )}
                     on:click={() => item.quantity < 16 && item.quantity++}>
@@ -85,7 +88,7 @@
               </td>
               <td>
                 <button
-                  class="btn btn-error btn-sm"
+                  class={cn('btn btn-error btn-sm', $snap && 'btn-disabled')}
                   on:click={() => removeFromCart(item)}>
                   Delete
                 </button>
