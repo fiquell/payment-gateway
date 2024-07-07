@@ -1,6 +1,6 @@
 <script lang="ts">
   import { cart } from '$lib/stores'
-  import { applyDiscount, cn, formatIDR } from '$lib/utils'
+  import { cn, formatIDR } from '$lib/utils'
   import { Minus, Plus } from 'lucide-svelte'
 
   const handleQuantityChange = (event: Event, product: App.Cart) => {
@@ -80,10 +80,7 @@
               </td>
               <td>
                 <p class="font-semibold text-primary">
-                  {formatIDR(
-                    item.quantity *
-                      applyDiscount(item.price, item.discountPercentage)
-                  )}
+                  {formatIDR(item.quantity * item.price)}
                 </p>
               </td>
               <td>

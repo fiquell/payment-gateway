@@ -17,7 +17,10 @@
         ...items,
         {
           ...details,
-          name: product.title,
+          price: Math.round(
+            applyDiscount(product.price, product.discountPercentage)
+          ),
+          name: title,
           quantity: 1,
         },
       ]
@@ -50,7 +53,7 @@
     </div>
     <div class="flex items-center gap-1">
       {#each Array.from({ length: 5 }) as _, i}
-        {#if i < Math.floor(product.rating)}
+        {#if i < Math.round(product.rating)}
           <div class="mask mask-star-2 h-4 w-4 bg-warning" />
         {:else}
           <div class="mask mask-star-2 h-4 w-4 bg-neutral" />
