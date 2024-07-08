@@ -46,8 +46,10 @@
             {formatIDR(product.price)}
           </p>
         </div>
-        <div class="badge badge-neutral">
-          <p>{product.discountPercentage.toFixed(0)}%</p>
+        <div>
+          <p class="badge badge-neutral">
+            {Math.round(product.discountPercentage)}%
+          </p>
         </div>
       {/if}
     </div>
